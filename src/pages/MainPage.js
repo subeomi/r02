@@ -6,7 +6,9 @@ const MainPage = () => {
 
     return ( 
         <BasicLayout>
-            <h2>Main Page</h2>
+            <div className="bg-white">
+                <h2>Main Page</h2>
+            </div> 
         </BasicLayout>
      );
 }

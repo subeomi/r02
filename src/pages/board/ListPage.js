@@ -1,14 +1,51 @@
-import BasicLayout from "../../layouts/BasicLayout";
+import { useSearchParams } from "react-router-dom";
+import ListComponent from "../../components/board/ListComponent";
+
+const checkNull = (obj) => {
+
+    const result = {}
+
+    for (const attr in obj) {
+        const attrName = attr
+        const attrValue = obj[attr]
+
+        if (attrValue && attrValue !== 'null') {
+            result[attrName] = attrValue
+        }
+    }
+
+    return result
+}
 
 const ListPage = () => {
 
-    console.log("Board/list...")
+    const [search, setSearch] = useSearchParams()
 
-    return ( 
-        <BasicLayout>
+    console.log(search)
+
+    // search에서 해당하는 쿼리스트링을 가져옴. 없으면 || 뒤의 값.
+    const page = search.get("page") || 1
+    const size = search.get("size") || 10
+    const type = search.get("type")
+    const keyword = search.get("keyword")
+
+    const queryObj = checkNull({ page, size, type, keyword })
+
+    console.log("queryObj--------")
+    console.log(queryObj)
+
+    const movePage = (num) => {
+        console.log("NUM ------------------" + num)
+        queryObj.page = num
+        setSearch({...queryObj})
+    }
+
+    return (
+        <div>
             Board List Page
-        </BasicLayout>
-     );
+            <ListComponent queryObj={queryObj} movePage={movePage}></ListComponent>
+        </div>
+    );
 }
- 
+
 export default ListPage;

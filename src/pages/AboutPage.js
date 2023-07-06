@@ -6,7 +6,9 @@ const AboutPage = () => {
 
     return ( 
         <BasicLayout>
-            <div>About Page</div>
+            <div className="bg-white">
+                <div>About Page</div>
+            </div>
         </BasicLayout>
      );
 }
