@@ -3,7 +3,7 @@ import SampleNav from "./nav/SampleNav";
 const BasicLayout = ({children}) => {
     return ( 
         <div>
-            <div className="min-w-[1280px] bg-black text-white flex flex-wrap items-center drop-shadow-lg bg-opacity-90">
+            <div className="min-w-[1280px] bg-black text-white flex flex-wrap items-center drop-shadow-xl bg-opacity-90">
                 <div className="mx-6 p-4 text-2xl font-extrabold ml-10 cursor-pointer">
                     <span className="text-indigo-300">
                         <ion-icon name="accessibility-outline"></ion-icon>

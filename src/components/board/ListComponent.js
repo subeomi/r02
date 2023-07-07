@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { createSearchParams } from "react-router-dom";
 import { getList } from "../../api/boardAPI";
+import ListPageComponent from "../common/ListPageComponent";
 
 const initState = {
     dtoList: [],
@@ -14,7 +14,7 @@ const initState = {
     requestDTO: null
 }
 
-const ListComponent = ({queryObj, movePage}) => {
+const ListComponent = ({queryObj, movePage, moveRead}) => {
 
     const [listData, setListData] = useState(initState)
 
@@ -30,42 +30,21 @@ const ListComponent = ({queryObj, movePage}) => {
 
     }, [queryObj])
 
-    const handleClickPage = (pageNum) => {
-        movePage(pageNum)
-    }
-
     return ( 
         <div>
             <div>List Component</div>
             <div>
+
                 <ul>
-                    {listData.dtoList.map(({bno, title, writer, replyCount}) => <li key={bno}>{bno} - {title} - [{replyCount}]</li>)}
-                </ul>
-            </div>
-
-            <div className="m-4 p-2">
-                <ul className="flex justify-center">
-
-                    {listData.prev ? <li 
-                        className="m-2 p-2 bg-gray-500 text-white"
-                        onClick={() => handleClickPage(listData.page -1)}
-                        >Prev</li> : <></>}
-
-                    {listData.pageNums.map(num => 
+                    {listData.dtoList.map(dto => 
                         <li 
-                        key={num}
-                        // tabIndex={0}
-                        className="m-2 p-2 bg-gray-500 text-white active:bg-indigo-800"
-                        onClick={() => handleClickPage(num)}
-                        >{num}</li>)}
-
-                    {listData.next ? <li 
-                        className="m-2 p-2 bg-gray-500 text-white"
-                        onClick={() => handleClickPage(listData.page +1)}
-                        >Next</li> : <></>}
-
+                        key={dto.bno}
+                        onClick={() => moveRead(dto.bno)}
+                        >{dto.bno} - {dto.title} - [{dto.replyCount}]</li>
+                    )}
                 </ul>
             </div>
+        <ListPageComponent movePage={movePage} {...listData}></ListPageComponent>
         </div>
      );
 }
