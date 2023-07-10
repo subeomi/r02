@@ -30,20 +30,24 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
 
     }, [queryObj])
 
+    
+
     return ( 
         <div>
-            <div>List Component</div>
-            <div>
-
-                <ul>
+            <table className="w-full">
+                <tbody>
                     {listData.dtoList.map(dto => 
-                        <li 
-                        key={dto.bno}
-                        onClick={() => moveRead(dto.bno)}
-                        >{dto.bno} - {dto.title} - [{dto.replyCount}]</li>
+                    <tr key={dto.bno}>
+                        <td className="pr-4">{dto.bno}</td>
+                        <td>
+                            <a href="#" onClick={() => moveRead(dto.bno)}>{dto.title}</a>
+                            <span className="mx-2 text-gray-400">[{dto.replyCount}]</span>
+                        </td>
+                        <td className="text-right">{dto.regDate.split("T")[0]}</td>
+                    </tr>
                     )}
-                </ul>
-            </div>
+                </tbody>
+            </table>
         <ListPageComponent movePage={movePage} {...listData}></ListPageComponent>
         </div>
      );

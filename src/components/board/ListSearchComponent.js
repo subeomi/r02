@@ -16,9 +16,9 @@ const ListSearchComponent = ({moveSearch, queryObj}) => {
     }, [queryObj])
 
     return ( 
-        <div className="p-4 bg-blue-300">
+        <div className="p-2 flex items-center justify-center">
             <select 
-            className="p-2" 
+            className="p-2 border-2" 
             value={searchObj.type}
             onChange={e => {
                 searchObj.type = e.target.value
@@ -35,7 +35,7 @@ const ListSearchComponent = ({moveSearch, queryObj}) => {
 
             <input 
             type="text" 
-            className="ml-2 p-2"
+            className="ml-2 p-2 border-2"
             value={searchObj.keyword}
             onChange={e => {
                 searchObj.keyword = e.target.value
@@ -44,9 +44,11 @@ const ListSearchComponent = ({moveSearch, queryObj}) => {
             ></input>
 
             <button 
-            className="ml-4 border-2 p-2"
+            className="border-2 p-2"
             onClick={e => moveSearch(searchObj.type, searchObj.keyword)}
-            >SEARCH</button>
+            >
+                <ion-icon name="search-outline"></ion-icon>
+            </button>
         </div>
      );
 }

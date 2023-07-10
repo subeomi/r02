@@ -22,20 +22,20 @@ const ReadComponent = ({bno}) => {
 
     return ( 
         <div>
-            <div>
-                {board.bno}
-            </div>
-            <div>
+            <div className="text-2xl font-bold">
                 {board.title}
             </div>
-            <div>
+            <div className="flex py-2">
+                <div>
+                    {board.writer}
+                </div>
+                <div className="text-gray-400 pb-2 pl-2">
+                    {board.regDate}
+                </div>
+            </div>
+            <hr/>
+            <div className="py-20">
                 {board.content}
-            </div>
-            <div>
-                {board.writer}
-            </div>
-            <div>
-                {board.regDate}
             </div>
             
         </div>

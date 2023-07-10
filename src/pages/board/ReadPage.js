@@ -15,12 +15,14 @@ const ReadPage = () => {
 
     return ( 
         <div>
-            Board Read Page<br/>
+            <div className="my-20 text-2xl text-center"></div>
 
             <ReadComponent bno={bno}></ReadComponent>
 
             <ReplyWrapper bno={bno}></ReplyWrapper>
-            <button onClick={e => moveList()}>List</button>
+            <button onClick={e => moveList()} className="px-3 border-2 border-black text-2xl">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
         </div>
      );
 }

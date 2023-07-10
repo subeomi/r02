@@ -28,14 +28,15 @@ const ListPage = () => {
 
   return ( 
     <div>
-      Board List Page
-      <ListSearchComponent moveSearch={moveSearch} queryObj={queryObj}></ListSearchComponent>
+      <div className="my-20 text-2xl text-center">SUBEOMI BOARD</div>
 
+        
       <ListComponent 
       queryObj={queryObj} 
       movePage = {movePage} 
       moveRead = {moveRead}
       ></ListComponent>
+      <ListSearchComponent moveSearch={moveSearch} queryObj={queryObj}></ListSearchComponent>
     </div>  
    );
 }
