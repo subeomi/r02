@@ -33,16 +33,15 @@ const ReplyInput = ({bno, refreshLast}) => {
     }
 
     return ( 
-        <div className="m-8 bg-red-200 border-2 border-black">
-            <div>Reply Input</div>
+        <div className="border-2 border-gray-200 my-6 bg-white">
             <div>
-                <input className="m-2 border-2 border-black" type="text" name="replyText" value={reply.replyText} onChange={handleChange} placeholder="댓글 내용"/>
+                <input className="m-2 p-2" type="text" name="replyer" value={reply.replyer} onChange={handleChange} placeholder="작성자"/>
             </div>
             <div>
-            <input className="m-2 border-2 border-black" type="text" name="replyer" value={reply.replyer} onChange={handleChange} placeholder="댓글 작성자"/>
-            </div>
-            <div>
-                <button className="m-2 p-2 border-2 border-black" onClick={handleClickRegister}>Register</button>
+                <input className="m-2 p-2 w-[90%]" type="text" name="replyText" value={reply.replyText} onChange={handleChange} placeholder="내용"/>
+                <button className="p-2" onClick={handleClickRegister}>
+                <ion-icon name="pencil-outline"></ion-icon>
+                </button>
             </div>
         </div>
      );

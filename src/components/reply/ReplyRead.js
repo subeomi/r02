@@ -48,17 +48,15 @@ const ReplyRead = ({rno, cancelRead, refreshPage}) => {
     }
 
     return ( 
-        <div className="m-8 bg-blue-200 border-2 border-black">
-            <div>Reply Read {rno}</div>
+        <div className="my-4 border-2 bg-white">
             <div>
-                <div>{rno}</div>
-                <div>{reply.replyer}</div>
-                <div><input className="m-2 border-2 border-black" type="text" name="replyText" onChange={handleChange} value={reply.replyText}/></div>
+                <div className="p-2 font-bold">{reply.replyer}</div>
+                <div><input className="m-2 p-2" type="text" name="replyText" onChange={handleChange} value={reply.replyText}/></div>
             </div>
             <div>
-                <button className="m-2 p-2 border-2 border-green-700" onClick={handleClickModify}>MODIFY</button>
-                <button className="m-2 p-2 border-2 border-red-500" onClick={handleClickDelete}>DELETE</button>
-                <button className="m-2 p-2 border-2 border-black" onClick={cancelRead}>CANCEL</button>
+                <button className="m-2 p-2 bg-green-200 text-green-700" onClick={handleClickModify}>MODIFY</button>
+                <button className="m-2 p-2 bg-red-200 text-red-500" onClick={handleClickDelete}>DELETE</button>
+                <button className="m-2 p-2 text-gray-800" onClick={cancelRead}>CANCEL</button>
             </div>
         </div>
      );
