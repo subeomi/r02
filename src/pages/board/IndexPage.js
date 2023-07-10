@@ -8,7 +8,7 @@ const IndexPage = () => {
                 <div className="mx-2">List</div>
                 <div className="mx-2">Register</div>
             </div>
-            <div className="h-[50vh] w-full bg-slate-100 border-2">
+            <div className="h-full w-full bg-slate-100 border-2">
                 <Outlet></Outlet>
             </div>
         </BasicLayout>
