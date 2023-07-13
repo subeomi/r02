@@ -10,7 +10,6 @@ const ModifyPage = () => {
 
     return (
         <div>
-            <div>Product Modify Page {pno} </div>
             <ModifyComponent moveList={moveList} pno={pno} modeRead={moveRead}></ModifyComponent>
         </div>
     );

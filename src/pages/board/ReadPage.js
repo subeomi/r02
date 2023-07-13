@@ -21,7 +21,7 @@ const ReadPage = () => {
 
             <ReplyWrapper bno={bno}></ReplyWrapper>
             <button onClick={e => moveList()} className="px-3 border-2 border-black text-2xl">
-                <ion-icon name="menu-outline"></ion-icon>
+                GO LIST
             </button>
         </div>
      );

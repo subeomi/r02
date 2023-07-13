@@ -5,7 +5,7 @@ const IndexPage = () => {
     return (
         <BasicLayout>
             {/*  bg-opacity-25 backdrop-blur-sm */}
-            <div className="p-4 h-full bg-white flex justify-center">
+            <div className="p-4 min-h-[92.7vh] h-full bg-white flex justify-center">
                 <div className="text-3xl">
                     <div className="p-2 m-2 font-bold hover:bg-gray-200">
                         <Link to={"list"}>
@@ -18,7 +18,7 @@ const IndexPage = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="w-[40vw]">
+                <div className="w-[60vw]">
                     <Outlet></Outlet>
                 </div>
             </div>

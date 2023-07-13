@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getList } from "../../api/productAPI";
 import ListPageComponent from "../common/ListPageComponent";
+import StarRatings from "react-star-ratings";
 
 const initState = {
     dtoList: [],
@@ -42,7 +43,7 @@ const ListComponent = ({ queryObj, movePage, moveRead }) => {
                             key={dto.pno}
                             onClick={() => moveRead(dto.pno)}
                         >
-                            <div className=" w-[150px] h-[150px] ">
+                            <div className=" w-[200px] h-[200px] ">
                                 <img className="border-none" src={`http://localhost/s_${dto.fname}`}></img>
                             </div>
                             <div>
@@ -53,7 +54,13 @@ const ListComponent = ({ queryObj, movePage, moveRead }) => {
                                     \{dto.price}
                                 </div>
                                 <div>
-                                    {dto.reviewCnt} {dto.reviewAvg}
+                                    <StarRatings
+                                    starRatedColor="orange"
+                                    rating={dto.reviewAvg}
+                                    starDimension="15px"
+                                    starSpacing="0px"
+                                />
+                                <span className="text-gray-400 text-xs ml-1">({dto.reviewCnt})</span>
                                 </div>
                             </div>
                         </li>)}

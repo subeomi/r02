@@ -105,7 +105,7 @@ const ModifyComponent = ({ pno, moveList, modeRead }) => {
                 <ul className="list-none flex">
                     {product.images.map((fname, idx) =>
                         <li key={idx}
-                            className=" m-2"
+                            className=" m-2 text-center"
                         >
                             <img className="border-none" src={`http://localhost/s_${fname}`}></img>
                             <button className="bg-red-400 m-2 p-2" onClick={() => handleClickDelImg(fname)}>X</button>
@@ -113,8 +113,8 @@ const ModifyComponent = ({ pno, moveList, modeRead }) => {
                 </ul>
             </div>
             <div>
-                <button className="border-red-200 border-2 bg-red-200 text-red-500 p-2 my-2 mr-2" onClick={handleClickDelete}>DELETE</button>
-                <button className="border-sky-200 border-2 bg-sky-200 text-blue-600 p-2 my-2 mr-2" onClick={handleClickModify}>MODIFY</button>
+                <button className="bg-indigo-400 text-white hover:bg-red-200 hover:text-red-500 p-2 my-2 mr-2" onClick={handleClickDelete}>DELETE</button>
+                <button className="bg-indigo-400 text-white hover:bg-sky-200 hover:text-blue-600 p-2 my-2 mr-2" onClick={handleClickModify}>MODIFY</button>
                 <button className="border-2 border-gray-600 p-2 my-2 mr-2" onClick={moveList}>GO LIST</button>
             </div>
         </div>

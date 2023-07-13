@@ -6,7 +6,7 @@ const IndexPage = () => {
         <BasicLayout>
             {/*  bg-opacity-25 backdrop-blur-sm */}
             <div className="p-4 h-full bg-white flex justify-center">
-                <div className="w-[40vw]">
+                <div className="w-[50vw]">
                     <Outlet></Outlet>
                 </div>
             </div>
