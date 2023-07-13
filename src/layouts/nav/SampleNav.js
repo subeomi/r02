@@ -10,7 +10,7 @@ const SampleNav = () => {
                 <Link to={"/about"}>ABOUT</Link>
             </div>
             <div className="px-4 text-3xl border-r-2 border-gray-200 hover:text-indigo-400">
-                <Link to={"/board/list"}>CONTENT</Link>
+                <Link to={"/products/list"}>PRODUCTS</Link>
             </div>
             <div className="px-4 text-3xl border-r-2 border-gray-200 hover:text-indigo-400">
                 <Link to={"/board/list"}>BOARD</Link>

@@ -8,7 +8,7 @@ const checkNull = (obj) => {
     const attrName = attr
     const attrValue = obj[attr]
 
-    if( attrValue && attrValue !== 'null'){
+    if (attrValue && attrValue !== 'null') {
       result[attrName] = attrValue
     }
   }
@@ -22,32 +22,40 @@ const useQueryObj = () => {
   const navigate = useNavigate()
 
   console.log(search)
-  
+
   const page = search.get("page") || 1
   const size = search.get("size") || 10
   const type = search.get("type")
   const keyword = search.get("keyword")
 
-  const queryObj = checkNull({page,size,type,keyword})
+  const queryObj = checkNull({ page, size, type, keyword })
 
   const moveList = () => {
     const queryString = createSearchParams(queryObj).toString()
 
     navigate(`../list?${queryString}`)
   }
+
   const moveRead = (bno) => {
     console.log("moveRead: " + bno)
 
-    const queryString = createSearchParams (queryObj).toString()
+    const queryString = createSearchParams(queryObj).toString()
 
     navigate(`../read/${bno}?${queryString}`)
+  }
 
+  const moveModify = (bno) => {
+    console.log("moveModify: " + bno)
+
+    const queryString = createSearchParams(queryObj).toString()
+
+    navigate(`../modify/${bno}?${queryString}`)
   }
 
   // 배열 리턴이다, 순번이 다르면 작동하지 않음
   // return [queryObj, setSearch, moveRead, moveList]
 
-  return {queryObj, setSearch, moveRead, moveList}
+  return { queryObj, setSearch, moveRead, moveList, moveModify }
 }
 
 export default useQueryObj

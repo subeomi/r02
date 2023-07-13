@@ -28,7 +28,7 @@ const ListPage = () => {
 
   return ( 
     <div>
-      <div className="my-20 text-2xl text-center">SUBEOMI BOARD</div>
+      <div className="my-20 text-2xl text-center ">SUBEOMI BOARD</div>
 
         
       <ListComponent 
@@ -37,6 +37,7 @@ const ListPage = () => {
       moveRead = {moveRead}
       ></ListComponent>
       <ListSearchComponent moveSearch={moveSearch} queryObj={queryObj}></ListSearchComponent>
+      <div className="h-[27vh]"></div>
     </div>  
    );
 }
