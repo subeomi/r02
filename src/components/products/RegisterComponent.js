@@ -61,9 +61,9 @@ const RegisterComponent = ({ moveList }) => {
                 <input type="file" ref={fileRef} multiple name="images" onChange={handleChange}></input>
             </div>
             <div>
-                <button className="bg-green-200 text-green-700 p-2 m-2"
+                <button className="border-2 border-indigo-400 bg-indigo-400 text-white p-2 m-2"
                     onClick={handleClickSave}>SAVE</button>
-                <button className="bg-gray-500 text-white p-2 m-2"
+                <button className="border-2 border-gray-600 p-2 m-2"
                     onClick={handleClickClear}>CLEAR FILES</button>
             </div>
         </div>

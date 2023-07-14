@@ -1,3 +1,4 @@
+import TodoList from "../components/todo/TodoList";
 import BasicLayout from "../layouts/BasicLayout";
 
 const MainPage = () => {

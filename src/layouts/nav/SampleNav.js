@@ -1,6 +1,9 @@
+
 import { Link } from "react-router-dom";
 
 const SampleNav = () => {
+
+
     return ( 
         <div className="flex mx-6 p-4 ">
             <div className="px-4 text-3xl border-r-2 border-gray-200 hover:text-indigo-400">
