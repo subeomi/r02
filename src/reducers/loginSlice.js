@@ -1,5 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCookie, setCookie } from "../util/cookieUtil";
+import { postLogin } from "../api/memberAPI";
+
+// 파라미터 첫 번째는 이름, 두 번째는 함수(비동기 함수)
+export const postLoginThunk =
+    createAsyncThunk('postLoginThunk', (params) => {
+        return postLogin(params)
+    })
 
 const loadCookie = () => {
 
@@ -8,7 +15,7 @@ const loadCookie = () => {
     console.log("login...")
     console.log(loginObj)
 
-    if(!loginObj){
+    if (!loginObj) {
         return initState
     }
 
@@ -17,7 +24,10 @@ const loadCookie = () => {
 
 const initState = {
     email: '',
-    signed: false
+    nickname: '',
+    admin: false,
+    loading: false,
+    errorMsg: null
 }
 
 const loginSlice = createSlice({
@@ -32,10 +42,46 @@ const loginSlice = createSlice({
             setCookie("login", JSON.stringify(loginObj), 1)
 
             return loginObj
+        },
+        requestLogout: (state) => {
+          setCookie("login", '', -1);
+          return initState;
         }
+        
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(postLoginThunk.fulfilled, (state, action) => {
+                console.log("fulfilled", action.payload)
+                const { email, nickname, admin, errorMsg } = action.payload
+
+                if (errorMsg) {
+                    state.errorMsg = errorMsg
+                    return
+                }
+
+                state.loading = false
+                state.email = email
+                state.nickname = nickname
+                state.admin = admin
+
+                setCookie("login", JSON.stringify(action.payload), 1)
+            })
+            .addCase(postLoginThunk.pending, (state, action) => {
+                console.log("pending")
+                state.loading = true
+            })
+            .addCase(postLoginThunk.rejected, (state, action) => {
+                console.log("rejected")
+            })
+            .addCase('loginSlice/requestLogout', (state, action) => {
+                setCookie("login", '', -1); // 쿠키 삭제
+                return initState; // 초기 상태로 돌아감
+              });
     }
 })
 
-export const { requestLogin } = loginSlice.actions
+// 더 이상 필요가 없음
+export const { requestLogout } = loginSlice.actions
 
 export default loginSlice.reducer

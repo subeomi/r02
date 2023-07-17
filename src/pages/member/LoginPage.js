@@ -6,9 +6,11 @@ import BasicLayout from "../../layouts/BasicLayout";
 const LoginPage = () => {
     return (
         <BasicLayout>
-            <div>Login Page</div>
-            <LoginComponent></LoginComponent>
+            <div>
+                <LoginComponent></LoginComponent>
+            </div>
         </BasicLayout>
+
     );
 }
 

@@ -52,10 +52,14 @@ const useQueryObj = () => {
     navigate(`../modify/${bno}?${queryString}`)
   }
 
+  const moveMain = () => {
+    navigate("/");
+  };
+
   // 배열 리턴이다, 순번이 다르면 작동하지 않음
   // return [queryObj, setSearch, moveRead, moveList]
 
-  return { queryObj, setSearch, moveRead, moveList, moveModify }
+  return { queryObj, setSearch, moveRead, moveList, moveModify, moveMain }
 }
 
 export default useQueryObj

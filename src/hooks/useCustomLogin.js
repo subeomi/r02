@@ -12,20 +12,20 @@ const useCustomLogin = (fn) => {
     useEffect(() => {
         // 파라미터로 받은 함수에 ()를 붙이면 실행될 것
         if (fn) {
-            if (!loginInfo.signed) {
+            if (!loginInfo.email) {
                 fn(navigate)
             }
             return
         }
 
-        console.log("signed: ", loginInfo.signed)
+        console.log("signed: ", loginInfo.email)
 
-        if (!loginInfo.signed) {
+        if (!loginInfo.email) {
             navigate('/member/login')
             return
         }
 
-    }, [loginInfo.signed])
+    }, [loginInfo.email])
 
     return { loginInfo }
 }
