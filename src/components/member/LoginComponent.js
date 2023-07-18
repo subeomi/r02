@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginThunk, requestLogin } from "../../reducers/loginSlice";
+import KakaoLoginComponent from "./KakaoLoginComponent";
 
 const initState = {
     email: 'user00@aaa.com',
@@ -63,9 +64,10 @@ const LoginComponent = () => {
                 </div>
 
                 <div className="my-4">
-                    <button 
-                    className="bg-indigo-400 text-white p-2 w-[213px]"
-                    onClick={() => dispatch(postLoginThunk(loginInfo))}>LOGIN</button>
+                    <button
+                        className="bg-indigo-400 text-white p-2 my-1 w-[213px]"
+                        onClick={() => dispatch(postLoginThunk(loginInfo))}>LOGIN</button>
+                    <KakaoLoginComponent></KakaoLoginComponent>
                 </div>
             </div>
         </div>

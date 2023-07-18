@@ -37,7 +37,7 @@ const loginSlice = createSlice({
         requestLogin: (state, param) => {
             const payload = param.payload
             console.log("requestLogin", payload)
-            const loginObj = { email: payload.email, signed: true }
+            const loginObj = { email: payload.email, nickname: payload.nickname }
 
             setCookie("login", JSON.stringify(loginObj), 1)
 
@@ -82,6 +82,6 @@ const loginSlice = createSlice({
 })
 
 // 더 이상 필요가 없음
-export const { requestLogout } = loginSlice.actions
+export const { requestLogout, requestLogin } = loginSlice.actions
 
 export default loginSlice.reducer
