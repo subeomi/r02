@@ -44,10 +44,10 @@ const loginSlice = createSlice({
             return loginObj
         },
         requestLogout: (state) => {
-          setCookie("login", '', -1);
-          return initState;
+            setCookie("login", '', -1);
+            return initState;
         }
-        
+
     },
     extraReducers: (builder) => {
         builder
@@ -60,12 +60,18 @@ const loginSlice = createSlice({
                     return
                 }
 
-                state.loading = false
-                state.email = email
-                state.nickname = nickname
-                state.admin = admin
+                // state = action.payload
+
+                // state.loading = false
+                // state.email = email
+                // state.nickname = nickname
+                // state.admin = admin
+                // console.log("fulfilled after...", {...state})
+
 
                 setCookie("login", JSON.stringify(action.payload), 1)
+
+                return { ...action.payload, loading: false }
             })
             .addCase(postLoginThunk.pending, (state, action) => {
                 console.log("pending")
@@ -77,7 +83,7 @@ const loginSlice = createSlice({
             .addCase('loginSlice/requestLogout', (state, action) => {
                 setCookie("login", '', -1); // 쿠키 삭제
                 return initState; // 초기 상태로 돌아감
-              });
+            });
     }
 })
 
