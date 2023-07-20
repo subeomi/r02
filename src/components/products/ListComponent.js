@@ -24,9 +24,15 @@ const ListComponent = ({ queryObj, movePage, moveRead }) => {
 
     useEffect(() => {
 
+        // 리프레시 토큰까지 만료되면 catch에서 처리
         getList(queryObj).then(data => {
             console.log(data)
             setListData(data)
+        }).catch(err => {
+            
+            console.log("----------------------")
+            console.log(err)
+            console.log("======================")
         })
 
     }, [queryObj])
